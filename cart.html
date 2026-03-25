@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Afrootic Nutrition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <style>
+        .cart-page-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            min-height: 60vh;
+        }
+        .cart-page-title {
+            text-align: center;
+            font-size: 36px;
+            color: #2C5F2D;
+            margin-bottom: 40px;
+        }
+        .cart-items-container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .cart-item-details {
+            flex: 1;
+        }
+        .cart-item-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2C5F2D;
+            margin: 0 0 5px 0;
+        }
+        .cart-item-price {
+            color: #666;
+            font-size: 14px;
+        }
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .qty-btn {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .qty-btn:hover {
+            background: #4CAF50;
+            color: white;
+            border-color: #4CAF50;
+        }
+        .cart-item-total {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2C5F2D;
+            min-width: 100px;
+            text-align: right;
+        }
+        .remove-item-btn {
+            background: #f44336;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .remove-item-btn:hover {
+            background: #d32f2f;
+        }
+        .cart-summary {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .cart-total-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 18px;
+        }
+        .cart-total-row.final {
+            border-bottom: none;
+            font-size: 24px;
+            font-weight: 700;
+            color: #2C5F2D;
+        }
+        .checkout-btn {
+            width: 100%;
+            padding: 15px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        .checkout-btn:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+        }
+        .empty-cart-message {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .empty-cart-message i {
+            font-size: 60px;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+        .empty-cart-message h3 {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .continue-shopping-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #2C5F2D;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        @media (max-width: 768px) {
+            .cart-item {
+                flex-wrap: wrap;
+            }
+            .cart-item-total {
+                width: 100%;
+                text-align: left;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.jpg" alt="Afrootic Nutrition Logo" class="logo-img" />
+                <span class="logo-text">Afrootic <span>Nutrition</span></span>
+            </a>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="index.html#collection">Products</a>
+                <a href="index.html#why">Why Afrootic</a>
+                <a href="index.html#blog">Blog</a>
+                <a href="opportunities.html">Partners</a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </a>
+                <a href="https://wa.me/254745479845" target="_blank" class="nav-cta">Order on WhatsApp</a>
+            </nav>
+            <button class="hamburger" id="hamburger" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Cart Page Content -->
+    <div class="cart-page-container">
+        <h1 class="cart-page-title">Shopping Cart</h1>
+        
+        <div id="cart-content">
+            <!-- Cart items will be loaded here by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="text-align: center;">
+                <p>© 2025 Afrootic Nutrition. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        // Cart Page Specific JavaScript
+        document.addEventListener('DOMContentLoaded', () => {
+            loadCartPage();
+        });
+
+        function loadCartPage() {
+            const cartContent = document.getElementById('cart-content');
+            const cart = JSON.parse(localStorage.getItem('afrooticCart')) || [];
+
+            if (cart.length === 0) {
+                cartContent.innerHTML = `
+                    <div class="cart-items-container">
+                        <div class="empty-cart-message">
+                            <i class="fas fa-shopping-cart"></i>
+                            <h3>Your cart is empty</h3>
+                            <a href="index.html#collection" class="continue-shopping-btn">Continue Shopping</a>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+
+            let total = 0;
+            let itemsHTML = '<div class="cart-items-container">';
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+
+                itemsHTML += `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.name}" class="cart-item-image" onerror="this.src='images/logo.jpg'">
+                        <div class="cart-item-details">
+                            <h4 class="cart-item-name">${item.name}</h4>
+                            <p class="cart-item-price">KSH ${item.price.toLocaleString()} each</p>
+                            <div class="cart-item-quantity">
+                                <button class="qty-btn" onclick="decreaseQuantity(${item.id})">-</button>
+                                <span>${item.quantity}</span>
+                                <button class="qty-btn" onclick="increaseQuantity(${item.id})">+</button>
+                            </div>
+                        </div>
+                        <div class="cart-item-total">KSH ${itemTotal.toLocaleString()}</div>
+                        <button class="remove-item-btn" onclick="removeFromCart(${item.id})">Remove</button>
+                    </div>
+                `;
+            });
+
+            itemsHTML += '</div>';
+
+            itemsHTML += `
+                <div class="cart-summary">
+                    <div class="cart-total-row">
+                        <span>Subtotal</span>
+                        <span>KSH ${total.toLocaleString()}</span>
+                    </div>
+                    <div class="cart-total-row">
+                        <span>Delivery</span>
+                        <span>Calculated at checkout</span>
+                    </div>
+                    <div class="cart-total-row final">
+                        <span>Total</span>
+                        <span>KSH ${total.toLocaleString()}</span>
+                    </div>
+                    <button class="checkout-btn" onclick="checkoutWhatsApp()">
+                        <i class="fab fa-whatsapp"></i> Complete Order on WhatsApp
+                    </button>
+                </div>
+            `;
+
+            cartContent.innerHTML = itemsHTML;
+            updateCartCount();
+        }
+
+        function increaseQuantity(id) {
+            let cart = JSON.parse(localStorage.getItem('afrooticCart')) || [];
+            const item = cart.find(item => item.id === id);
+            if (item) {
+                item.quantity += 1;
+                localStorage.setItem('afrooticCart', JSON.stringify(cart));
+                loadCartPage();
+                updateCartCount();
+            }
+        }
+
+        function decreaseQuantity(id) {
+            let cart = JSON.parse(localStorage.getItem('afrooticCart')) || [];
+            const item = cart.find(item => item.id === id);
+            if (item && item.quantity > 1) {
+                item.quantity -= 1;
+                localStorage.setItem('afrooticCart', JSON.stringify(cart));
+                loadCartPage();
+                updateCartCount();
+            }
+        }
+
+        function removeFromCart(id) {
+            let cart = JSON.parse(localStorage.getItem('afrooticCart')) || [];
+            cart = cart.filter(item => item.id !== id);
+            localStorage.setItem('afrooticCart', JSON.stringify(cart));
+            loadCartPage();
+            updateCartCount();
+        }
+
+        function checkoutWhatsApp() {
+            let cart = JSON.parse(localStorage.getItem('afrooticCart')) || [];
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+
+            let message = 'Hi! I would like to order:%0A%0A';
+            let total = 0;
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                message += `• ${item.name} x ${item.quantity} - KSH ${itemTotal.toLocaleString()}%0A`;
+            });
+
+            message += `%0A*Total: KSH ${total.toLocaleString()}*`;
+            message += '%0A%0APlease confirm my order.';
+
+            window.open(`https://wa.me/254745479845?text=${message}`, '_blank');
+        }
+
+        function updateCartCount() {
+            const countElement = document.getElementById('cart-count');
+            if (countElement) {
+                const cart = JSON.parse(localStorage.getItem('afrooticCart')) || [];
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                countElement.textContent = totalItems;
+            }
+        }
+    </script>
+</body>
+</html>

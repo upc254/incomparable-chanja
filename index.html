@@ -1,66 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Incomparable Chanja</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Afrootic Nutrition | Daily Wellness Made Simple</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/animations.css" />
+<style>
+.cart-icon { position:relative; color:#2C5F2D; font-size:20px; margin-right:15px; text-decoration:none; }
+.cart-icon:hover { color:#4CAF50; }
+.cart-count { position:absolute; top:-8px; right:-10px; background:#4CAF50; color:white; border-radius:50%; width:18px; height:18px; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:bold; }
+.add-to-cart-btn { width:100%; padding:12px 20px; background:#4CAF50; color:white; border:none; border-radius:6px; font-size:15px; font-weight:600; cursor:pointer; transition:all 0.3s; margin-top:10px; }
+.add-to-cart-btn:hover { background:#45a049; transform:translateY(-2px); box-shadow:0 4px 12px rgba(76, 175, 80, 0.3); }
+</style>
 </head>
 <body>
-    <header>
-        <nav>
-            <!-- Existing Navigation -->
-        </nav>
-    </header>
+<header id="navbar">
+<div class="nav-container">
+<a href="index.html" class="logo">
+<img src="images/logo.jpg" alt="Afrootic Nutrition Logo" class="logo-img" />
+<span class="logo-text">Afrootic <span>Nutrition</span></span>
+</a>
+<nav class="nav-links" id="navLinks">
+<a href="#collection">Products</a>
+<a href="#why">Why Afrootic</a>
+<a href="#blog">Blog</a>
+<a href="#pickup">Pickup</a>
+<a href="#faq">FAQ</a>
+<a href="opportunities.html">Partners</a>
+<a href="cart.html" class="cart-icon">
+<i class="fas fa-shopping-cart"></i>
+<span class="cart-count" id="cart-count">0</span>
+</a>
+<a href="https://wa.me/254745479845?text=Hi!%20I%27d%20like%20to%20order%20from%20Afrootic%20Nutrition" target="_blank" class="nav-cta">Order on WhatsApp</a>
+</nav>
+<button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</div>
+</header>
+<div class="mobile-overlay" id="mobileOverlay"></div>
 
-    <main>
-        <div class="hero">
-            <!-- Complete Hero Section -->
-            <h1>Welcome to Incomparable Chanja</h1>
-            <p>Your one-stop solution for all things Afrootic.</p>
-        </div>
+<section class="hero" id="home">
+<h1>Daily wellness<br /><em>made simple</em></h1>
+<p>Feel good, look good, and stay consistent with wellness essentials made for real life.</p>
+<div class="hero-cta-group">
+<a href="#collection" class="btn btn-primary">Shop Now</a>
+<a href="https://wa.me/254745479845" target="_blank" class="btn btn-whatsapp">Order on WhatsApp</a>
+</div>
+</section>
 
-        <div class="products">
-            <!-- Existing Product Cards -->
-        </div>
+<section class="products" id="products">
+<div class="container">
+<h2>OUR COLLECTION</h2>
+<div class="category-pills">
+<button class="pill active" data-filter="all">All Products</button>
+<button class="pill" data-filter="powder">Powders</button>
+<button class="pill" data-filter="gummies">Gummies</button>
+<button class="pill" data-filter="capsules">Capsules</button>
+</div>
+<div class="products-grid">
 
-        <section class="why-afrootic">
-            <h2>Why Afrootic</h2>
-            <p>Here you can explain why your brand is unique and why customers should choose you.</p>
-        </section>
+<div class="product-card" data-category="powder">
+<div class="product-badge bestseller">Best Seller</div>
+<div class="product-image-wrap">
+<img src="images/marine-collagen-250g.jpg" alt="Marine Collagen" class="product-photo" loading="lazy" />
+</div>
+<div class="product-info">
+<h3>Marine Collagen</h3>
+<p>Supports glowing skin, stronger nails, healthy hair</p>
+<div class="product-variants">
+<div class="variant">
+<span class="variant-size">100g</span>
+<span class="variant-price">KSH 1,300</span>
+<button class="add-to-cart-btn" data-id="1" data-name="Marine Collagen 100g" data-price="1300" data-image="images/marine-collagen-250g.jpg">Add to Cart</button>
+</div>
+<div class="variant">
+<span class="variant-size">250g</span>
+<span class="variant-price">KSH 2,500</span>
+<button class="add-to-cart-btn" data-id="2" data-name="Marine Collagen 250g" data-price="2500" data-image="images/marine-collagen-250g.jpg">Add to Cart</button>
+</div>
+</div>
+</div>
+</div>
 
-        <section class="blog">
-            <h2>Blog</h2>
-            <p>Latest news and updates from our team!</p>
-        </section>
+<div class="product-card" data-category="powder">
+<div class="product-image-wrap">
+<img src="images/greens-pineapple-mango.jpg" alt="Afrootic Greens" class="product-photo" loading="lazy" />
+</div>
+<div class="product-info">
+<h3>Afrootic Greens</h3>
+<p>Supports gut health, digestion, skin wellness</p>
+<div class="product-variants">
+<div class="variant">
+<span class="variant-size">150g</span>
+<span class="variant-price">KSH 2,000</span>
+<button class="add-to-cart-btn" data-id="3" data-name="Afrootic Greens 150g" data-price="2000" data-image="images/greens-pineapple-mango.jpg">Add to Cart</button>
+</div>
+<div class="variant">
+<span class="variant-size">300g</span>
+<span class="variant-price">KSH 3,600</span>
+<button class="add-to-cart-btn" data-id="4" data-name="Afrootic Greens 300g" data-price="3600" data-image="images/greens-pineapple-mango.jpg">Add to Cart</button>
+</div>
+</div>
+</div>
+</div>
 
-        <section class="testimonials">
-            <h2>Testimonials</h2>
-            <p>What our customers say about us.</p>
-        </section>
+<div class="product-card" data-category="gummies">
+<div class="product-image-wrap">
+<img src="images/probiotic-cranberry.jpg" alt="Probiotic Gummies" class="product-photo" loading="lazy" />
+</div>
+<div class="product-info">
+<h3>Women's Probiotic Gummies <span class="flavor-tag">Cranberry</span></h3>
+<p>Supports digestion, bloating, daily balance</p>
+<div class="product-variants">
+<div class="variant">
+<span class="variant-size">30 Gummies</span>
+<span class="variant-price">KSH 1,750</span>
+<button class="add-to-cart-btn" data-id="5" data-name="Probiotic Gummies Cranberry 30ct" data-price="1750" data-image="images/probiotic-cranberry.jpg">Add to Cart</button>
+</div>
+<div class="variant">
+<span class="variant-size">60 Gummies</span>
+<span class="variant-price">KSH 3,500</span>
+<button class="add-to-cart-btn" data-id="6" data-name="Probiotic Gummies Cranberry 60ct" data-price="3500" data-image="images/probiotic-cranberry.jpg">Add to Cart</button>
+</div>
+</div>
+</div>
+</div>
 
-        <section class="pickup-locations">
-            <h2>Pickup Locations</h2>
-            <p>Find your nearest pickup location.</p>
-        </section>
+<div class="product-card" data-category="gummies">
+<div class="product-image-wrap">
+<img src="images/probiotic-slippery-elm.jpg" alt="Slippery Elm Probiotics" class="product-photo" loading="lazy" />
+</div>
+<div class="product-info">
+<h3>Women's Probiotics with Slippery Elm <span class="flavor-tag">Pineapple</span></h3>
+<p>Supports digestion and gut comfort</p>
+<div class="product-variants">
+<div class="variant">
+<span class="variant-size">30 Gummies</span>
+<span class="variant-price">KSH 1,750</span>
+<button class="add-to-cart-btn" data-id="7" data-name="Probiotic Slippery Elm 30ct" data-price="1750" data-image="images/probiotic-slippery-elm.jpg">Add to Cart</button>
+</div>
+<div class="variant">
+<span class="variant-size">60 Gummies</span>
+<span class="variant-price">KSH 3,500</span>
+<button class="add-to-cart-btn" data-id="8" data-name="Probiotic Slippery Elm 60ct" data-price="3500" data-image="images/probiotic-slippery-elm.jpg">Add to Cart</button>
+</div>
+</div>
+</div>
+</div>
 
-        <section class="faq">
-            <h2>FAQ</h2>
-            <p>Frequently Asked Questions.</p>
-        </section>
+<div class="product-card" data-category="powder">
+<div class="product-badge new">Energy</div>
+<div class="product-image-wrap">
+<img src="images/revive-plus-2.jpg" alt="Revive+" class="product-photo" loading="lazy" />
+</div>
+<div class="product-info">
+<h3>Revive+</h3>
+<p>Energy support without crash</p>
+<div class="product-variants">
+<div class="variant">
+<span class="variant-size">15 Sachets</span>
+<span class="variant-price">KSH 1,500</span>
+<button class="add-to-cart-btn" data-id="9" data-name="Revive+ 15 Sachets" data-price="1500" data-image="images/revive-plus-2.jpg">Add to Cart</button>
+</div>
+<div class="variant">
+<span class="variant-size">30 Sachets</span>
+<span class="variant-price">KSH 3,000</span>
+<button class="add-to-cart-btn" data-id="10" data-name="Revive+ 30 Sachets" data-price="3000" data-image="images/revive-plus-2.jpg">Add to Cart</button>
+</div>
+</div>
+</div>
+</div>
 
-        <section class="cta-banner">
-            <h2>Call to Action</h2>
-            <p>Join us today and experience the difference!</p>
-            <button>Get Started</button>
-        </section>
+<div class="product-card" data-category="gummies">
+<div class="product-image-wrap">
+<img src="images/creatine-gummies.jpg" alt="Creatine Gummies" class="product-photo" loading="lazy" />
+</div>
+<div class="product-info">
+<h3>Creatine Gummies</h3>
+<p>Strength and recovery support</p>
+<div class="product-variants single">
+<div class="variant">
+<span class="variant-size">Per Bottle</span>
+<span class="variant-price">KSH 2,700</span>
+<button class="add-to-cart-btn" data-id="11" data-name="Creatine Gummies" data-price="2700" data-image="images/creatine-gummies.jpg">Add to Cart</button>
+</div>
+</div>
+</div>
+</div>
 
-        <footer class="footer">
-            <h2>Contact Us</h2>
-            <p>We would love to hear from you!</p>
-        </footer>
-    </main>
+<div class="product-card" data-category="capsules">
+<div class="product-image-wrap">
+<img src="images/magnesium-bisglycinate.jpg" alt="Magnesium Bisglycinate" class="product-photo" loading="lazy" />
+</div>
+<div class="product-info">
+<h3>Magnesium Bisglycinate</h3>
+<p>Relaxation and recovery</p>
+<div class="product-variants single">
+<div class="variant">
+<span class="variant-size">Per Bottle</span>
+<span class="variant-price">KSH 2,200</span>
+<button class="add-to-cart-btn" data-id="12" data-name="Magnesium Bisglycinate" data-price="2200" data-image="images/magnesium-bisglycinate.jpg">Add to Cart</button>
+</div>
+</div>
+</div>
+</div>
 
-    <script src="script.js"></script>
+<div class="product-card" data-category="capsules">
+<div class="product-badge science">Science-Backed</div>
+<div class="product-image-wrap">
+<img src="images/berberine-1000mg.jpg" alt="Berberine 1000mg" class="product-photo" loading="lazy" />
+</div>
+<div class="product-info">
+<h3>Berberine 1000mg</h3>
+<p>Plant-Based Blood Sugar & Metabolic Support</p>
+<ul class="product-features">
+<li>✓ Supports healthy blood sugar</li>
+<li>✓ Helps reduce cravings</li>
+<li>✓ Supports metabolism & balance</li>
+</ul>
+<p>One of the most studied natural compounds for metabolic health.</p>
+<div class="product-variants single">
+<div class="variant">
+<span class="variant-size">60 Capsules | 30 Day Supply</span>
+<span class="variant-price">KSH 2,400</span>
+<button class="add-to-cart-btn" data-id="13" data-name="Berberine 1000mg" data-price="2400" data-image="images/berberine-1000mg.jpg">Add to Cart</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="product-card" data-category="capsules">
+<div class="product-image-wrap">
+<img src="images/probiotic-slippery-elm.jpg" alt="Myo and Inositol" class="product-photo" loading="lazy" />
+</div>
+<div class="product-info">
+<h3>Myo and Inositol</h3>
+<p>Women's wellness support</p>
+<div class="product-variants single">
+<div class="variant">
+<span class="variant-size">Per Bottle</span>
+<span class="variant-price">KSH 2,500</span>
+<button class="add-to-cart-btn" data-id="14" data-name="Myo and Inositol" data-price="2500" data-image="images/probiotic-slippery-elm.jpg">Add to Cart</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="product-card" data-category="capsules">
+<div class="product-badge popular">Popular</div>
+<div class="product-image-wrap">
+<img src="images/sea-moss-advanced.jpg" alt="Sea Moss Advanced" class="product-photo" loading="lazy" />
+</div>
+<div class="product-info">
+<h3>Sea Moss Advanced</h3>
+<p>Sea Moss • Bladderwrack • Burdock Root</p>
+<ul class="product-features">
+<li>✓ Contains 92 of 102 essential minerals</li>
+<li>✓ Nature's most powerful plant-based wellness ally</li>
+<li>✓ Supports energy, immunity & glow</li>
+</ul>
+<p>It's no wonder it's a powerhouse for daily wellness.</p>
+<div class="product-variants single">
+<div class="variant">
+<span class="variant-size">60 Vegetable Capsules</span>
+<span class="variant-price">KSH 1,999</span>
+<button class="add-to-cart-btn" data-id="15" data-name="Sea Moss Advanced" data-price="1999" data-image="images/sea-moss-advanced.jpg">Add to Cart</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="product-card" data-category="gummies">
+<div class="product-image-wrap">
+<img src="images/acv-gummies-90.jpg" alt="ACV Gummies" class="product-photo" loading="lazy" />
+</div>
+<div class="product-info">
+<h3>Apple Cider Vinegar Gummies</h3>
+<p>Digestive support</p>
+<div class="product-variants">
+<div class="variant">
+<span class="variant-size">45 Gummies</span>
+<span class="variant-price">KSH 1,000</span>
+<button class="add-to-cart-btn" data-id="16" data-name="ACV Gummies 45ct" data-price="1000" data-image="images/acv-gummies-90.jpg">Add to Cart</button>
+</div>
+<div class="variant">
+<span class="variant-size">90 Gummies</span>
+<span class="variant-price">KSH 2,000</span>
+<button class="add-to-cart-btn" data-id="17" data-name="ACV Gummies 90ct" data-price="2000" data-image="images/acv-gummies-90.jpg">Add to Cart</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="container">
+<div class="footer-bottom">
+<p>© 2025 Afrootic Nutrition. All rights reserved. · <a href="https://afrootic.co.ke">afrootic.co.ke</a></p>
+</div>
+</div>
+</footer>
+
+<a href="https://wa.me/254745479845" target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+
+<script src="js/main.js"></script>
+<script src="js/cart.js"></script>
 </body>
 </html>

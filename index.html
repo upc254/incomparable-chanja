@@ -12,6 +12,8 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://afrootic.co.ke" />
 <link rel="canonical" href="https://afrootic.co.ke" />
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,65 +24,90 @@
 <link rel="stylesheet" href="css/style.css" />
 <!-- Animations CSS -->
 <link rel="stylesheet" href="css/animations.css" />
-<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<!-- Cart CSS -->
 <style>
-/* Cart Icon Styles */
-.cart-icon {
-    position: relative;
-    color: #2C5F2D;
-    font-size: 20px;
-    margin-right: 15px;
-}
-.cart-count {
-    position: absolute;
-    top: -8px;
-    right: -10px;
-    background: #4CAF50;
-    color: white;
-    border-radius: 50%;
-    width: 18px;
-    height: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    font-weight: bold;
-}
-.add-to-cart-btn {
-    width: 100%;
-    padding: 10px 15px;
-    background: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-    margin-top: 8px;
-}
-.add-to-cart-btn:hover {
-    background: #45a049;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
-}
-.cart-notification {
-    position: fixed;
-    bottom: 100px;
-    right: 20px;
-    background: #4CAF50;
-    color: white;
-    padding: 15px 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    z-index: 10000;
-    transform: translateX(400px);
-    transition: transform 0.3s ease;
-    font-weight: 500;
-}
-.cart-notification.show {
-    transform: translateX(0);
-}
+    .cart-icon {
+        position: relative;
+        color: #2C5F2D;
+        font-size: 20px;
+        margin-right: 15px;
+        text-decoration: none;
+    }
+    .cart-icon:hover {
+        color: #4CAF50;
+    }
+    .cart-count {
+        position: absolute;
+        top: -8px;
+        right: -10px;
+        background: #4CAF50;
+        color: white;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        font-weight: bold;
+    }
+    .add-to-cart-btn {
+        width: 100%;
+        padding: 10px 15px;
+        background: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin-top: 8px;
+    }
+    .add-to-cart-btn:hover {
+        background: #45a049;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+    }
+    .cart-notification {
+        position: fixed;
+        bottom: 100px;
+        right: 20px;
+        background: #4CAF50;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        z-index: 10000;
+        transform: translateX(400px);
+        transition: transform 0.3s ease;
+        font-weight: 500;
+        opacity: 0;
+    }
+    .cart-notification.show {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    .product-features {
+        list-style: none;
+        padding: 0;
+        margin: 15px 0;
+    }
+    .product-features li {
+        padding: 8px 0;
+        color: #555;
+        font-size: 14px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    .product-features li:last-child {
+        border-bottom: none;
+    }
+    .product-description {
+        color: #666;
+        font-size: 14px;
+        margin: 15px 0;
+        line-height: 1.6;
+    }
 </style>
 </head>
 <body>
@@ -101,8 +128,8 @@ NAVIGATION
 <a href="#faq">FAQ</a>
 <a href="opportunities.html">Partners</a>
 <a href="cart.html" class="cart-icon">
-<i class="fas fa-shopping-cart"></i>
-<span class="cart-count" id="cart-count">0</span>
+    <i class="fas fa-shopping-cart"></i>
+    <span class="cart-count" id="cart-count">0</span>
 </a>
 <a href="https://wa.me/254745479845?text=Hi!%20I%27d%20like%20to%20order%20from%20Afrootic%20Nutrition" target="_blank" class="nav-cta">Order on WhatsApp</a>
 </nav>
@@ -148,6 +175,7 @@ Premium Wellness · Made in Kenya
 <div class="product-orb orb-1"></div>
 <div class="product-orb orb-2"></div>
 <div class="product-orb orb-3"></div>
+<!-- Central hero product image -->
 <div class="hero-center-img floating">
 <img src="images/marine-collagen-250g.jpg" alt="Marine Collagen 250g" />
 </div>
@@ -197,33 +225,29 @@ PRODUCTS SECTION
 <section class="products" id="products">
 <div class="container">
 <div class="products-grid" id="productsGrid">
-<!-- 1. Marine Collagen 100g -->
+<!-- 1. Marine Collagen -->
 <div class="product-card" data-category="powder">
 <div class="product-badge bestseller">Best Seller</div>
 <div class="product-image-wrap">
-<img src="images/marine-collagen-250g.jpg" alt="Afrootic Marine Collagen" class="product-photo" loading="lazy" />
+<img src="images/marine-collagen-250g.jpg" alt="Afrootic Marine Collagen 250g" class="product-photo" loading="lazy" />
+<div class="product-img-overlay"></div>
 </div>
 <div class="product-info">
-<h3 class="product-name">Marine Collagen 100g</h3>
+<h3 class="product-name">Marine Collagen</h3>
 <p class="product-benefit">Supports glowing skin, stronger nails, healthy hair</p>
-<div class="product-variants single">
+<ul class="product-features">
+    <li>✓ Supports skin elasticity and reduces fine lines</li>
+    <li>✓ Strengthens nails and promotes hair growth</li>
+    <li>✓ Supports joint health and bone density</li>
+    <li>✓ Improves skin hydration and firmness</li>
+</ul>
+<p class="product-description">Marine collagen is easily absorbed by the body and provides the building blocks for healthy skin, hair, nails, and joints. Consistent use promotes a youthful glow from within.</p>
+<div class="product-variants">
 <div class="variant">
 <span class="variant-size">100g</span>
 <span class="variant-price">KSH 1,300</span>
 <button class="add-to-cart-btn" data-id="1" data-name="Marine Collagen 100g" data-price="1300" data-image="images/marine-collagen-250g.jpg">Add to Cart</button>
 </div>
-</div>
-</div>
-</div>
-<!-- 2. Marine Collagen 250g -->
-<div class="product-card" data-category="powder">
-<div class="product-image-wrap">
-<img src="images/marine-collagen-250g.jpg" alt="Afrootic Marine Collagen 250g" class="product-photo" loading="lazy" />
-</div>
-<div class="product-info">
-<h3 class="product-name">Marine Collagen 250g</h3>
-<p class="product-benefit">Supports glowing skin, stronger nails, healthy hair</p>
-<div class="product-variants single">
 <div class="variant">
 <span class="variant-size">250g</span>
 <span class="variant-price">KSH 2,500</span>
@@ -232,32 +256,28 @@ PRODUCTS SECTION
 </div>
 </div>
 </div>
-<!-- 3. Afrootic Greens 150g -->
+<!-- 2. Afrootic Greens -->
 <div class="product-card" data-category="powder">
 <div class="product-image-wrap">
-<img src="images/greens-pineapple-mango.jpg" alt="Afrootic Greens" class="product-photo" loading="lazy" />
+<img src="images/greens-pineapple-mango.jpg" alt="Afrootic Greens Pineapple Mango" class="product-photo" loading="lazy" />
+<div class="product-img-overlay"></div>
 </div>
 <div class="product-info">
-<h3 class="product-name">Afrootic Greens 150g</h3>
+<h3 class="product-name">Afrootic Greens</h3>
 <p class="product-benefit">Supports gut health, digestion, skin wellness</p>
-<div class="product-variants single">
+<ul class="product-features">
+    <li>✓ Packed with nutrient-dense superfoods</li>
+    <li>✓ Supports digestive health and detoxification</li>
+    <li>✓ Boosts energy and immune function</li>
+    <li>✓ Alkalizes the body and reduces inflammation</li>
+</ul>
+<p class="product-description">A powerful blend of organic greens, fruits, and vegetables that delivers essential vitamins, minerals, and antioxidants in one convenient daily serving.</p>
+<div class="product-variants">
 <div class="variant">
 <span class="variant-size">150g</span>
 <span class="variant-price">KSH 2,000</span>
 <button class="add-to-cart-btn" data-id="3" data-name="Afrootic Greens 150g" data-price="2000" data-image="images/greens-pineapple-mango.jpg">Add to Cart</button>
 </div>
-</div>
-</div>
-</div>
-<!-- 4. Afrootic Greens 300g -->
-<div class="product-card" data-category="powder">
-<div class="product-image-wrap">
-<img src="images/greens-pineapple-mango.jpg" alt="Afrootic Greens 300g" class="product-photo" loading="lazy" />
-</div>
-<div class="product-info">
-<h3 class="product-name">Afrootic Greens 300g</h3>
-<p class="product-benefit">Supports gut health, digestion, skin wellness</p>
-<div class="product-variants single">
 <div class="variant">
 <span class="variant-size">300g</span>
 <span class="variant-price">KSH 3,600</span>
@@ -266,32 +286,28 @@ PRODUCTS SECTION
 </div>
 </div>
 </div>
-<!-- 5. Probiotic Gummies Cranberry 30ct -->
+<!-- 3. Women's Probiotic Gummies (Cranberry) -->
 <div class="product-card" data-category="gummies">
 <div class="product-image-wrap">
-<img src="images/probiotic-cranberry.jpg" alt="Women's Probiotic Gummies" class="product-photo" loading="lazy" />
+<img src="images/probiotic-cranberry.jpg" alt="Women's Probiotic Gummies Cranberry" class="product-photo" loading="lazy" />
+<div class="product-img-overlay"></div>
 </div>
 <div class="product-info">
-<h3 class="product-name">Probiotic Gummies Cranberry 30ct</h3>
+<h3 class="product-name">Women's Probiotic Gummies <span class="flavor-tag">Cranberry</span></h3>
 <p class="product-benefit">Supports digestion, bloating, daily balance</p>
-<div class="product-variants single">
+<ul class="product-features">
+    <li>✓ Supports vaginal and urinary tract health</li>
+    <li>✓ Promotes balanced gut flora and digestion</li>
+    <li>✓ Strengthens immune system function</li>
+    <li>✓ Reduces bloating and digestive discomfort</li>
+</ul>
+<p class="product-description">Specially formulated with cranberry and beneficial probiotics to support women's intimate health, digestive balance, and overall wellness in a delicious gummy form.</p>
+<div class="product-variants">
 <div class="variant">
 <span class="variant-size">30 Gummies</span>
 <span class="variant-price">KSH 1,750</span>
 <button class="add-to-cart-btn" data-id="5" data-name="Probiotic Gummies Cranberry 30ct" data-price="1750" data-image="images/probiotic-cranberry.jpg">Add to Cart</button>
 </div>
-</div>
-</div>
-</div>
-<!-- 6. Probiotic Gummies Cranberry 60ct -->
-<div class="product-card" data-category="gummies">
-<div class="product-image-wrap">
-<img src="images/probiotic-cranberry.jpg" alt="Women's Probiotic Gummies 60ct" class="product-photo" loading="lazy" />
-</div>
-<div class="product-info">
-<h3 class="product-name">Probiotic Gummies Cranberry 60ct</h3>
-<p class="product-benefit">Supports digestion, bloating, daily balance</p>
-<div class="product-variants single">
 <div class="variant">
 <span class="variant-size">60 Gummies</span>
 <span class="variant-price">KSH 3,500</span>
@@ -300,156 +316,223 @@ PRODUCTS SECTION
 </div>
 </div>
 </div>
-<!-- 7. Probiotic Slippery Elm 30ct -->
+<!-- 4. Women's Probiotics with Slippery Elm (Tropical Pineapple) -->
 <div class="product-card" data-category="gummies">
 <div class="product-image-wrap">
-<img src="images/probiotic-slippery-elm.jpg" alt="Probiotic Slippery Elm" class="product-photo" loading="lazy" />
+<img src="images/probiotic-slippery-elm.jpg" alt="Women's Probiotics Slippery Elm Tropical Pineapple" class="product-photo" loading="lazy" />
+<div class="product-img-overlay"></div>
 </div>
 <div class="product-info">
-<h3 class="product-name">Probiotic Slippery Elm 30ct</h3>
+<h3 class="product-name">Women's Probiotics with Slippery Elm <span class="flavor-tag">Tropical Pineapple</span></h3>
 <p class="product-benefit">Supports digestion and gut comfort</p>
-<div class="product-variants single">
+<ul class="product-features">
+    <li>✓ Soothes digestive tract inflammation</li>
+    <li>✓ Supports regular bowel movements</li>
+    <li>✓ Promotes healthy gut bacteria balance</li>
+    <li>✓ Relieves occasional digestive discomfort</li>
+</ul>
+<p class="product-description">Combines powerful probiotics with slippery elm bark, a traditional herbal remedy known for its soothing properties. Perfect for sensitive digestive systems and daily gut comfort.</p>
+<div class="product-variants">
 <div class="variant">
 <span class="variant-size">30 Gummies</span>
 <span class="variant-price">KSH 1,750</span>
 <button class="add-to-cart-btn" data-id="7" data-name="Probiotic Slippery Elm 30ct" data-price="1750" data-image="images/probiotic-slippery-elm.jpg">Add to Cart</button>
 </div>
+<div class="variant">
+<span class="variant-size">60 Gummies</span>
+<span class="variant-price">KSH 3,500</span>
+<button class="add-to-cart-btn" data-id="8" data-name="Probiotic Slippery Elm 60ct" data-price="3500" data-image="images/probiotic-slippery-elm.jpg">Add to Cart</button>
 </div>
 </div>
 </div>
-<!-- 8. Revive+ 15 Sachets -->
+</div>
+<!-- 5. Revive+ -->
 <div class="product-card" data-category="powder">
 <div class="product-badge new">Energy</div>
 <div class="product-image-wrap">
-<img src="images/revive-plus-2.jpg" alt="Afrootic Revive+" class="product-photo" loading="lazy" />
+<img src="images/revive-plus-2.jpg" alt="Afrootic Revive+ Energy Sachets" class="product-photo" loading="lazy" />
+<div class="product-img-overlay"></div>
 </div>
 <div class="product-info">
-<h3 class="product-name">Revive+ 15 Sachets</h3>
+<h3 class="product-name">Revive+</h3>
 <p class="product-benefit">Energy support without crash</p>
-<div class="product-variants single">
+<ul class="product-features">
+    <li>✓ Provides natural, sustained energy without crash</li>
+    <li>✓ Supports mental clarity and focus</li>
+    <li>✓ Enhances physical performance and endurance</li>
+    <li>✓ Reduces fatigue and brain fog</li>
+</ul>
+<p class="product-description">A clean energy formula designed to fuel your day naturally. Unlike caffeine-heavy alternatives, Revive+ provides balanced, jitter-free energy that lasts.</p>
+<div class="product-variants">
 <div class="variant">
 <span class="variant-size">15 Sachets</span>
 <span class="variant-price">KSH 1,500</span>
-<button class="add-to-cart-btn" data-id="8" data-name="Revive+ 15 Sachets" data-price="1500" data-image="images/revive-plus-2.jpg">Add to Cart</button>
+<button class="add-to-cart-btn" data-id="9" data-name="Revive+ 15 Sachets" data-price="1500" data-image="images/revive-plus-2.jpg">Add to Cart</button>
+</div>
+<div class="variant">
+<span class="variant-size">30 Sachets</span>
+<span class="variant-price">KSH 3,000</span>
+<button class="add-to-cart-btn" data-id="10" data-name="Revive+ 30 Sachets" data-price="3000" data-image="images/revive-plus-2.jpg">Add to Cart</button>
 </div>
 </div>
 </div>
 </div>
-<!-- 9. Creatine Gummies -->
+<!-- 6. Creatine Gummies -->
 <div class="product-card" data-category="gummies">
 <div class="product-image-wrap">
-<img src="images/creatine-gummies.jpg" alt="Creatine Gummies" class="product-photo" loading="lazy" />
+<img src="images/creatine-gummies.jpg" alt="Afrootic Creatine Monohydrate Gummies" class="product-photo" loading="lazy" />
+<div class="product-img-overlay"></div>
 </div>
 <div class="product-info">
 <h3 class="product-name">Creatine Gummies</h3>
 <p class="product-benefit">Strength and recovery support</p>
+<ul class="product-features">
+    <li>✓ Increases muscle strength and power output</li>
+    <li>✓ Supports muscle recovery and growth</li>
+    <li>✓ Enhances athletic performance and endurance</li>
+    <li>✓ Supports cognitive function and brain health</li>
+</ul>
+<p class="product-description">One of the most researched sports supplements, creatine monohydrate helps you train harder, recover faster, and build lean muscle mass. Now in a convenient, great-tasting gummy.</p>
 <div class="product-variants single">
 <div class="variant">
 <span class="variant-size">Per Bottle</span>
 <span class="variant-price">KSH 2,700</span>
-<button class="add-to-cart-btn" data-id="9" data-name="Creatine Gummies" data-price="2700" data-image="images/creatine-gummies.jpg">Add to Cart</button>
+<button class="add-to-cart-btn" data-id="11" data-name="Creatine Gummies" data-price="2700" data-image="images/creatine-gummies.jpg">Add to Cart</button>
 </div>
 </div>
 </div>
 </div>
-<!-- 10. Magnesium Bisglycinate -->
+<!-- 7. Magnesium Bisglycinate -->
 <div class="product-card" data-category="capsules">
 <div class="product-image-wrap">
-<img src="images/magnesium-bisglycinate.jpg" alt="Magnesium Bisglycinate" class="product-photo" loading="lazy" />
+<img src="images/magnesium-bisglycinate.jpg" alt="Afrootic Magnesium Bisglycinate Capsules" class="product-photo" loading="lazy" />
+<div class="product-img-overlay"></div>
 </div>
 <div class="product-info">
 <h3 class="product-name">Magnesium Bisglycinate</h3>
 <p class="product-benefit">Relaxation and recovery</p>
+<ul class="product-features">
+    <li>✓ Promotes deep, restful sleep</li>
+    <li>✓ Relieves muscle tension and cramps</li>
+    <li>✓ Supports stress reduction and relaxation</li>
+    <li>✓ Enhances bone health and heart function</li>
+</ul>
+<p class="product-description">Magnesium bisglycinate is a highly bioavailable form of magnesium that's gentle on the stomach. Essential for over 300 bodily functions, it's the ultimate relaxation mineral.</p>
 <div class="product-variants single">
 <div class="variant">
 <span class="variant-size">Per Bottle</span>
 <span class="variant-price">KSH 2,200</span>
-<button class="add-to-cart-btn" data-id="10" data-name="Magnesium Bisglycinate" data-price="2200" data-image="images/magnesium-bisglycinate.jpg">Add to Cart</button>
+<button class="add-to-cart-btn" data-id="12" data-name="Magnesium Bisglycinate" data-price="2200" data-image="images/magnesium-bisglycinate.jpg">Add to Cart</button>
 </div>
 </div>
 </div>
 </div>
-<!-- 11. Berberine 1000mg -->
+<!-- 8. Berberine 1000mg -->
 <div class="product-card" data-category="capsules">
 <div class="product-badge science">Science-Backed</div>
 <div class="product-image-wrap">
 <img src="images/berberine-1000mg.jpg" alt="Berberine 1000mg" class="product-photo" loading="lazy" />
+<div class="product-img-overlay"></div>
 </div>
 <div class="product-info">
 <h3 class="product-name">Berberine 1000mg</h3>
 <p class="product-benefit">Plant-Based Blood Sugar & Metabolic Support</p>
 <ul class="product-features">
-<li>✓ Supports healthy blood sugar</li>
-<li>✓ Helps reduce cravings</li>
-<li>✓ Supports metabolism & balance</li>
+    <li>✓ Supports healthy blood sugar</li>
+    <li>✓ Helps reduce cravings</li>
+    <li>✓ Supports metabolism & balance</li>
 </ul>
+<p class="product-description">One of the most studied natural compounds for <strong>metabolic health</strong>.</p>
 <div class="product-variants single">
 <div class="variant">
-<span class="variant-size">60 Capsules</span>
+<span class="variant-size">60 Capsules | 30 Day Supply</span>
 <span class="variant-price">KSH 2,400</span>
-<button class="add-to-cart-btn" data-id="11" data-name="Berberine 1000mg" data-price="2400" data-image="images/berberine-1000mg.jpg">Add to Cart</button>
+<button class="add-to-cart-btn" data-id="13" data-name="Berberine 1000mg" data-price="2400" data-image="images/berberine-1000mg.jpg">Add to Cart</button>
 </div>
 </div>
 </div>
 </div>
-<!-- 12. Sea Moss Advanced -->
+<!-- 9. Myo and Inositol -->
+<div class="product-card" data-category="capsules">
+<div class="product-image-wrap">
+<img src="images/probiotic-slippery-elm.jpg" alt="Myo and Inositol" class="product-photo" loading="lazy" />
+<div class="product-img-overlay"></div>
+</div>
+<div class="product-info">
+<h3 class="product-name">Myo and Inositol</h3>
+<p class="product-benefit">Women's wellness support</p>
+<ul class="product-features">
+    <li>✓ Supports hormonal balance and menstrual regularity</li>
+    <li>✓ Promotes ovarian health and fertility</li>
+    <li>✓ Helps manage cravings and metabolic health</li>
+    <li>✓ Supports mood and emotional well-being</li>
+</ul>
+<p class="product-description">Myo-inositol is a powerful compound that supports women's hormonal health, particularly for PCOS management. It helps regulate cycles, support metabolism, and promote overall reproductive wellness.</p>
+<div class="product-variants single">
+<div class="variant">
+<span class="variant-size">Per Bottle</span>
+<span class="variant-price">KSH 2,500</span>
+<button class="add-to-cart-btn" data-id="14" data-name="Myo and Inositol" data-price="2500" data-image="images/probiotic-slippery-elm.jpg">Add to Cart</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 10. Sea Moss Advanced -->
 <div class="product-card" data-category="capsules">
 <div class="product-badge popular">Popular</div>
 <div class="product-image-wrap">
 <img src="images/sea-moss-advanced.jpg" alt="Sea Moss Advanced" class="product-photo" loading="lazy" />
+<div class="product-img-overlay"></div>
 </div>
 <div class="product-info">
 <h3 class="product-name">Sea Moss Advanced</h3>
 <p class="product-benefit">Sea Moss • Bladderwrack • Burdock Root</p>
 <ul class="product-features">
-<li>✓ Contains 92 of 102 essential minerals</li>
-<li>✓ Nature's most powerful plant-based wellness ally</li>
-<li>✓ Supports energy, immunity & glow</li>
+    <li>✓ Contains 92 of 102 essential minerals</li>
+    <li>✓ Nature's most powerful plant-based wellness ally</li>
+    <li>✓ Supports energy, immunity & glow</li>
 </ul>
+<p class="product-description">It's no wonder it's a <strong>powerhouse</strong> for daily wellness.</p>
 <div class="product-variants single">
 <div class="variant">
-<span class="variant-size">60 Capsules</span>
+<span class="variant-size">60 Vegetable Capsules</span>
 <span class="variant-price">KSH 1,999</span>
-<button class="add-to-cart-btn" data-id="12" data-name="Sea Moss Advanced" data-price="1999" data-image="images/sea-moss-advanced.jpg">Add to Cart</button>
+<button class="add-to-cart-btn" data-id="15" data-name="Sea Moss Advanced" data-price="1999" data-image="images/sea-moss-advanced.jpg">Add to Cart</button>
 </div>
 </div>
 </div>
 </div>
-<!-- 13. ACV Gummies 45ct -->
+<!-- 11. Apple Cider Vinegar Gummies -->
 <div class="product-card" data-category="gummies">
 <div class="product-image-wrap">
-<img src="images/acv-gummies-90.jpg" alt="ACV Gummies" class="product-photo" loading="lazy" />
+<img src="images/acv-gummies-90.jpg" alt="Afrootic Apple Cider Vinegar Gummies" class="product-photo" loading="lazy" />
+<div class="product-img-overlay"></div>
 </div>
 <div class="product-info">
-<h3 class="product-name">ACV Gummies 45ct</h3>
+<h3 class="product-name">Apple Cider Vinegar Gummies</h3>
 <p class="product-benefit">Digestive support</p>
-<div class="product-variants single">
+<ul class="product-features">
+    <li>✓ Supports healthy digestion and metabolism</li>
+    <li>✓ Helps maintain balanced blood sugar levels</li>
+    <li>✓ Promotes weight management and satiety</li>
+    <li>✓ Supports detoxification and immune function</li>
+</ul>
+<p class="product-description">All the benefits of raw apple cider vinegar in a delicious, easy-to-take gummy. ACV has been used for centuries to support digestion, metabolism, and overall wellness.</p>
+<div class="product-variants">
 <div class="variant">
 <span class="variant-size">45 Gummies</span>
 <span class="variant-price">KSH 1,000</span>
-<button class="add-to-cart-btn" data-id="13" data-name="ACV Gummies 45ct" data-price="1000" data-image="images/acv-gummies-90.jpg">Add to Cart</button>
+<button class="add-to-cart-btn" data-id="16" data-name="ACV Gummies 45ct" data-price="1000" data-image="images/acv-gummies-90.jpg">Add to Cart</button>
 </div>
-</div>
-</div>
-</div>
-<!-- 14. ACV Gummies 90ct -->
-<div class="product-card" data-category="gummies">
-<div class="product-image-wrap">
-<img src="images/acv-gummies-90.jpg" alt="ACV Gummies 90ct" class="product-photo" loading="lazy" />
-</div>
-<div class="product-info">
-<h3 class="product-name">ACV Gummies 90ct</h3>
-<p class="product-benefit">Digestive support</p>
-<div class="product-variants single">
 <div class="variant">
 <span class="variant-size">90 Gummies</span>
 <span class="variant-price">KSH 2,000</span>
-<button class="add-to-cart-btn" data-id="14" data-name="ACV Gummies 90ct" data-price="2000" data-image="images/acv-gummies-90.jpg">Add to Cart</button>
+<button class="add-to-cart-btn" data-id="17" data-name="ACV Gummies 90ct" data-price="2000" data-image="images/acv-gummies-90.jpg">Add to Cart</button>
 </div>
 </div>
 </div>
 </div>
-</div>
+</div><!-- /.products-grid -->
 </div>
 </section>
 <!-- ============================================================
@@ -498,36 +581,78 @@ BLOG SECTION
 <h2 class="section-title">From the Afrootic <em>journal</em></h2>
 <div class="blog-grid">
 <article class="blog-card">
-<a href="blog/greens-daily.html" class="blog-card-link"></a>
+<a href="blog/greens-daily.html" class="blog-card-link" aria-label="Read: How to Take Greens Daily Without Struggling"></a>
 <div class="blog-image blog-img-1">
 <div class="blog-cat-tag">Nutrition</div>
 </div>
 <div class="blog-content">
+<div class="blog-meta">
+<span><i class="fas fa-clock"></i> 3 min read</span>
+<span><i class="fas fa-tag"></i> greens powder benefits</span>
+</div>
 <h3>How to Take Greens Daily Without Struggling</h3>
-<p>Greens powders are one of the easiest ways to flood your body with nutrients — but consistency is the real challenge.</p>
+<p>Greens powders are one of the easiest ways to flood your body with nutrients — but consistency is the real challenge. Here's what works.</p>
+<ul class="blog-tips">
+<li>Add Afrootic Greens to water or a smoothie in the morning — before you open your phone.</li>
+<li>Keep the bag on your counter as a daily visual reminder.</li>
+<li>Pair it with a habit you already have, like your morning coffee routine.</li>
+<li>Notice the difference in your digestion and energy within days.</li>
+</ul>
+<div class="blog-keywords"><strong>Keywords:</strong> greens powder benefits, greens for digestion</div>
+<div class="blog-cta">
+<p>Start small. Stay consistent. Feel the difference.<br /><strong>Order today on WhatsApp.</strong></p>
 <a href="https://wa.me/254745479845?text=Hi!%20I%27d%20like%20to%20order%20Afrootic%20Greens" target="_blank" class="btn btn-wa-small"><i class="fab fa-whatsapp"></i> Order Greens</a>
+</div>
 </div>
 </article>
 <article class="blog-card">
-<a href="blog/gut-health.html" class="blog-card-link"></a>
+<a href="blog/gut-health.html" class="blog-card-link" aria-label="Read: Why Gut Health Matters and How to Improve It Daily"></a>
 <div class="blog-image blog-img-2">
 <div class="blog-cat-tag">Gut Health</div>
 </div>
 <div class="blog-content">
+<div class="blog-meta">
+<span><i class="fas fa-clock"></i> 4 min read</span>
+<span><i class="fas fa-tag"></i> probiotics benefits</span>
+</div>
 <h3>Why Gut Health Matters and How to Improve It Daily</h3>
-<p>Your gut is your second brain — it affects your mood, skin, immunity, and energy.</p>
+<p>Your gut is your second brain — it affects your mood, skin, immunity, and energy. Here's how to take care of it every single day.</p>
+<ul class="blog-tips">
+<li>A healthy gut starts with probiotics — beneficial bacteria that balance your digestive system.</li>
+<li>Afrootic's Women's Probiotic Gummies are designed specifically for women's gut and hormonal health.</li>
+<li>Add Afrootic Greens for prebiotics that feed your good bacteria.</li>
+<li>Reduce processed foods, stay hydrated, and stay consistent.</li>
+</ul>
+<div class="blog-keywords"><strong>Keywords:</strong> gut health tips, probiotics benefits</div>
+<div class="blog-cta">
+<p>Start small. Stay consistent. Feel the difference.<br /><strong>Order today on WhatsApp.</strong></p>
 <a href="https://wa.me/254745479845?text=Hi!%20I%27d%20like%20to%20order%20Women%27s%20Probiotic%20Gummies" target="_blank" class="btn btn-wa-small"><i class="fab fa-whatsapp"></i> Order Probiotics</a>
+</div>
 </div>
 </article>
 <article class="blog-card">
-<a href="blog/glowing-skin.html" class="blog-card-link"></a>
+<a href="blog/glowing-skin.html" class="blog-card-link" aria-label="Read: How to Get Glowing Skin Naturally from Within"></a>
 <div class="blog-image blog-img-3">
 <div class="blog-cat-tag">Skincare</div>
 </div>
 <div class="blog-content">
+<div class="blog-meta">
+<span><i class="fas fa-clock"></i> 3 min read</span>
+<span><i class="fas fa-tag"></i> collagen benefits</span>
+</div>
 <h3>How to Get Glowing Skin Naturally from Within</h3>
-<p>Real glow doesn't come from a serum — it comes from inside. Your skin reflects what you nourish your body with.</p>
+<p>Real glow doesn't come from a serum — it comes from inside. Your skin reflects what you nourish your body with. Here's the inside-out approach.</p>
+<ul class="blog-tips">
+<li>Marine Collagen is the skin's structural protein — it keeps skin firm, plump, and smooth.</li>
+<li>Mix Afrootic Marine Collagen into warm water or a smoothie daily for 30 days and track your skin.</li>
+<li>Pair with Vitamin C-rich foods to boost absorption.</li>
+<li>Stay hydrated — collagen works better when your body is well-hydrated.</li>
+</ul>
+<div class="blog-keywords"><strong>Keywords:</strong> collagen benefits, healthy skin routine</div>
+<div class="blog-cta">
+<p>Start small. Stay consistent. Feel the difference.<br /><strong>Order today on WhatsApp.</strong></p>
 <a href="https://wa.me/254745479845?text=Hi!%20I%27d%20like%20to%20order%20Marine%20Collagen" target="_blank" class="btn btn-wa-small"><i class="fab fa-whatsapp"></i> Order Collagen</a>
+</div>
 </div>
 </article>
 </div>
@@ -543,26 +668,68 @@ TESTIMONIALS
 <div class="testimonials-grid">
 <div class="testimonial-card">
 <div class="stars">★★★★★</div>
-<p>"I've been taking the Marine Collagen for 6 weeks and my skin looks completely different!"</p>
+<p>"I've been taking the Marine Collagen for 6 weeks and my skin looks completely different. People keep asking what I'm doing differently. This is my new forever product!"</p>
 <div class="reviewer">
 <div class="reviewer-avatar">A</div>
-<div><strong>Amina K.</strong><span>Nairobi, Kenya</span></div>
+<div>
+<strong>Amina K.</strong>
+<span>Nairobi, Kenya</span>
+</div>
 </div>
 </div>
 <div class="testimonial-card featured">
 <div class="stars">★★★★★</div>
-<p>"The Probiotic Gummies have completely changed my gut situation. No more bloating!"</p>
+<p>"The Probiotic Gummies have completely changed my gut situation. No more bloating after meals, my digestion feels so much better. And they taste amazing too!"</p>
 <div class="reviewer">
 <div class="reviewer-avatar">W</div>
-<div><strong>Wanjiku M.</strong><span>Westlands, Nairobi</span></div>
+<div>
+<strong>Wanjiku M.</strong>
+<span>Westlands, Nairobi</span>
+</div>
 </div>
 </div>
 <div class="testimonial-card">
 <div class="stars">★★★★★</div>
-<p>"The Afrootic Greens are my secret weapon. My energy is so much more stable!"</p>
+<p>"The Afrootic Greens are my secret weapon. I mix them every morning and I've noticed my energy is so much more stable throughout the day. Highly recommend!"</p>
 <div class="reviewer">
 <div class="reviewer-avatar">F</div>
-<div><strong>Fatuma O.</strong><span>Tatu City</span></div>
+<div>
+<strong>Fatuma O.</strong>
+<span>Tatu City</span>
+</div>
+</div>
+</div>
+<div class="testimonial-card">
+<div class="stars">★★★★★</div>
+<p>"Revive+ is everything! I stopped relying on coffee to get through my day. Clean energy, no jitters, no crash. I order every month without fail."</p>
+<div class="reviewer">
+<div class="reviewer-avatar">B</div>
+<div>
+<strong>Brenda N.</strong>
+<span>Kiambu</span>
+</div>
+</div>
+</div>
+<div class="testimonial-card">
+<div class="stars">★★★★★</div>
+<p>"Delivery was fast and the packaging was beautiful. The Magnesium helps me sleep so well now. I used to toss and turn every night — not anymore. 10/10 service!"</p>
+<div class="reviewer">
+<div class="reviewer-avatar">S</div>
+<div>
+<strong>Sharon W.</strong>
+<span>Nairobi CBD</span>
+</div>
+</div>
+</div>
+<div class="testimonial-card">
+<div class="stars">★★★★★</div>
+<p>"I picked up my order from GTC Mall Westlands and the team was so helpful. Started on Collagen + Greens combo and my skin and energy have never been better!"</p>
+<div class="reviewer">
+<div class="reviewer-avatar">C</div>
+<div>
+<strong>Cynthia L.</strong>
+<span>Westlands, Nairobi</span>
+</div>
 </div>
 </div>
 </div>
@@ -575,32 +742,32 @@ PICKUP SECTION
 <div class="container">
 <div class="section-tag">PICKUP LOCATIONS</div>
 <h2 class="section-title">Pickup <em>made easy</em></h2>
-<p class="section-sub">Prefer to pick up your order? We've got you covered in 3 convenient locations.</p>
+<p class="section-sub">Prefer to pick up your order? We've got you covered in 3 convenient locations across Nairobi and Kiambu.</p>
 <div class="pickup-grid">
 <div class="pickup-card">
 <div class="pickup-icon"><i class="fas fa-map-marker-alt"></i></div>
 <h4>GTC Mall Westlands</h4>
 <p>Ground Floor, GTC Mall<br />Westlands, Nairobi</p>
-<a href="https://wa.me/254745479845" target="_blank" class="btn-pickup-wa"><i class="fab fa-whatsapp"></i> Arrange Pickup</a>
+<a href="https://wa.me/254745479845?text=Hi!%20I%27d%20like%20to%20arrange%20pickup%20at%20GTC%20Mall%20Westlands" target="_blank" class="btn-pickup-wa"><i class="fab fa-whatsapp"></i> Arrange Pickup</a>
 </div>
 <div class="pickup-card featured-location">
 <div class="pickup-icon"><i class="fas fa-map-marker-alt"></i></div>
 <h4>Nairobi CBD</h4>
 <p>Mithoo Business Centre<br />Shop S38, Nairobi CBD</p>
-<a href="https://wa.me/254745479845" target="_blank" class="btn-pickup-wa"><i class="fab fa-whatsapp"></i> Arrange Pickup</a>
+<a href="https://wa.me/254745479845?text=Hi!%20I%27d%20like%20to%20arrange%20pickup%20at%20Mithoo%20Business%20Centre%20CBD" target="_blank" class="btn-pickup-wa"><i class="fab fa-whatsapp"></i> Arrange Pickup</a>
 </div>
 <div class="pickup-card">
 <div class="pickup-icon"><i class="fas fa-map-marker-alt"></i></div>
 <h4>Tatu City</h4>
 <p>Tatu City<br />Kiambu County</p>
-<a href="https://wa.me/254745479845" target="_blank" class="btn-pickup-wa"><i class="fab fa-whatsapp"></i> Arrange Pickup</a>
+<a href="https://wa.me/254745479845?text=Hi!%20I%27d%20like%20to%20arrange%20pickup%20at%20Tatu%20City" target="_blank" class="btn-pickup-wa"><i class="fab fa-whatsapp"></i> Arrange Pickup</a>
 </div>
 </div>
 <div class="payment-note">
 <i class="fas fa-shield-alt"></i>
 <div>
 <strong>Secure Mobile Payment</strong>
-<p>Pay via <strong>M-Pesa Send Money</strong> to <strong>0745 479 845</strong> · No cash accepted</p>
+<p>Pay via <strong>M-Pesa Send Money</strong> to <strong>0745 479 845</strong> · No cash accepted · Delivery also available</p>
 </div>
 </div>
 </div>
@@ -614,21 +781,70 @@ FAQ SECTION
 <h2 class="section-title">Frequently asked <em>questions</em></h2>
 <div class="faq-list">
 <div class="faq-item">
-<button class="faq-question"><span>What is Afrootic Nutrition?</span><span class="faq-icon"><i class="fas fa-plus"></i></span></button>
+<button class="faq-question" aria-expanded="false">
+<span>What is Afrootic Nutrition?</span>
+<span class="faq-icon"><i class="fas fa-plus"></i></span>
+</button>
 <div class="faq-answer">
-<p>Afrootic Nutrition is a premium wellness brand based in Kenya, offering natural supplements designed for real life.</p>
+<p>Afrootic Nutrition is a premium wellness brand based in Kenya, offering natural supplements designed for real life. Our products support glow, gut health, energy, hormonal balance, and everyday confidence — all formulated to fit naturally into your routine.</p>
 </div>
 </div>
 <div class="faq-item">
-<button class="faq-question"><span>How do I place an order?</span><span class="faq-icon"><i class="fas fa-plus"></i></span></button>
+<button class="faq-question" aria-expanded="false">
+<span>How do I place an order?</span>
+<span class="faq-icon"><i class="fas fa-plus"></i></span>
+</button>
 <div class="faq-answer">
-<p>Click any "Order" button or message us on WhatsApp: 0745 479 845</p>
+<p>You can order directly through this website by clicking any <strong>"Order"</strong> button next to a product — it will connect you directly to our WhatsApp for easy ordering. You can also message us directly on <strong>WhatsApp: 0745 479 845</strong> with the product name and quantity.</p>
 </div>
 </div>
 <div class="faq-item">
-<button class="faq-question"><span>How do I pay?</span><span class="faq-icon"><i class="fas fa-plus"></i></span></button>
+<button class="faq-question" aria-expanded="false">
+<span>How do I pay?</span>
+<span class="faq-icon"><i class="fas fa-plus"></i></span>
+</button>
 <div class="faq-answer">
-<p>We accept M-Pesa Send Money to 0745 479 845. No cash accepted.</p>
+<p>We accept payment via <strong>M-Pesa Send Money to 0745 479 845</strong>. Please note that we do <strong>not accept cash</strong>. Once payment is confirmed, we'll process your order right away.</p>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">
+<span>Do you deliver? Where do you deliver to?</span>
+<span class="faq-icon"><i class="fas fa-plus"></i></span>
+</button>
+<div class="faq-answer">
+<p>Yes! We offer <strong>delivery across Nairobi and Kiambu</strong>. Delivery fees may apply depending on location. We also offer <strong>free pickup</strong> at our 3 convenient locations. Message us on WhatsApp to confirm delivery to your area.</p>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">
+<span>Where can I pick up my order?</span>
+<span class="faq-icon"><i class="fas fa-plus"></i></span>
+</button>
+<div class="faq-answer">
+<p>We have 3 pickup locations:<br /><br />
+📍 <strong>GTC Mall Westlands</strong> — Westlands, Nairobi<br />
+📍 <strong>Mithoo Business Centre, Shop S38</strong> — Nairobi CBD<br />
+📍 <strong>Tatu City</strong> — Kiambu County<br /><br />
+Message us on WhatsApp to arrange your pickup time.</p>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">
+<span>Are the prices in Kenyan Shillings?</span>
+<span class="faq-icon"><i class="fas fa-plus"></i></span>
+</button>
+<div class="faq-answer">
+<p>Yes, all prices on this website are in <strong>Kenyan Shillings (KSH)</strong>.</p>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">
+<span>Are your products safe for daily use?</span>
+<span class="faq-icon"><i class="fas fa-plus"></i></span>
+</button>
+<div class="faq-answer">
+<p>Yes — all our products are carefully selected for quality and safety. They are designed for consistent daily use. If you have any specific medical conditions, allergies, or are pregnant/breastfeeding, we recommend consulting your doctor before starting any new supplement. Message us on WhatsApp if you need help choosing the right product for your needs.</p>
 </div>
 </div>
 </div>
@@ -642,10 +858,12 @@ FINAL CTA BANNER
 <div class="cta-banner-inner">
 <div class="cta-banner-text">
 <h2>Ready to start your wellness journey?</h2>
-<p>Order today, feel the difference in days.</p>
+<p>Order today, feel the difference in days. We're one WhatsApp message away.</p>
 </div>
 <div class="cta-banner-actions">
-<a href="https://wa.me/254745479845" target="_blank" class="btn btn-white"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+<a href="https://wa.me/254745479845?text=Hi!%20I%27d%20like%20to%20order%20from%20Afrootic%20Nutrition" target="_blank" class="btn btn-white">
+<i class="fab fa-whatsapp"></i> Order on WhatsApp
+</a>
 <a href="#collection" class="btn btn-outline-white">Browse Products</a>
 </div>
 </div>
@@ -664,8 +882,8 @@ FOOTER
 </a>
 <p>Daily wellness made simple. Premium supplements crafted for real life in Kenya.</p>
 <div class="footer-social">
-<a href="https://www.instagram.com/afrooticnutrition/" target="_blank"><i class="fab fa-instagram"></i></a>
-<a href="https://wa.me/254745479845" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a href="https://www.instagram.com/afrooticnutrition/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+<a href="https://wa.me/254745479845" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
 </div>
 </div>
 <div class="footer-col">
@@ -673,6 +891,8 @@ FOOTER
 <a href="#products">Marine Collagen</a>
 <a href="#products">Afrootic Greens</a>
 <a href="#products">Probiotic Gummies</a>
+<a href="#products">Revive+</a>
+<a href="#products">Creatine Gummies</a>
 <a href="#products">View All Products</a>
 </div>
 <div class="footer-col">
@@ -685,23 +905,28 @@ FOOTER
 <a href="opportunities.html">Partners</a>
 </div>
 <div class="footer-col">
-<h5>Contact</h5>
-<a href="https://wa.me/254745479845"><i class="fab fa-whatsapp"></i> 0745 479 845</a>
+<h5>Contact & Order</h5>
+<a href="https://wa.me/254745479845" target="_blank"><i class="fab fa-whatsapp"></i> 0745 479 845</a>
+<p class="footer-note">Payment: M-Pesa Send Money<br />to <strong>0745 479 845</strong></p>
 <p class="footer-note">📍 GTC Mall Westlands<br />📍 Mithoo Business Centre, Shop S38<br />📍 Tatu City, Kiambu</p>
 </div>
 </div>
 <div class="footer-bottom">
-<p>© 2025 Afrootic Nutrition. All rights reserved.</p>
+<p>© 2025 Afrootic Nutrition. All rights reserved. · <a href="https://afrootic.co.ke">afrootic.co.ke</a></p>
 </div>
 </div>
 </footer>
-<!-- WhatsApp Float -->
-<a href="https://wa.me/254745479845" target="_blank" class="whatsapp-float">
+<!-- ============================================================
+FLOATING WHATSAPP BUTTON
+============================================================ -->
+<a href="https://wa.me/254745479845?text=Hi!%20I%27d%20like%20to%20order%20from%20Afrootic%20Nutrition" target="_blank" class="whatsapp-float" id="waFloat" aria-label="Order on WhatsApp">
 <i class="fab fa-whatsapp"></i>
+<span class="wa-tooltip">Order on WhatsApp</span>
 </a>
-<!-- Scripts -->
+<!-- Main JS -->
 <script src="js/main.js"></script>
 <script src="js/animations.js"></script>
+<!-- Cart JS -->
 <script src="js/cart.js"></script>
 </body>
 </html>

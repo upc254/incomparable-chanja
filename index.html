@@ -1,394 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Afrootic Nutrition | Daily Wellness Made Simple</title>
-    <meta name="description" content="Afrootic Nutrition – Premium wellness essentials made for real life. Shop Marine Collagen, Greens, Probiotics, Creatine Gummies and more." />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" />
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="css/style.css" />
-    <!-- Animations CSS -->
-    <link rel="stylesheet" href="css/animations.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Incomparable Chanja</title>
 </head>
 <body>
-<header id="navbar">
-    <div class="nav-container">
-        <a href="index.html" class="logo">
-            <img src="images/logo.jpg" alt="Afrootic Nutrition Logo" class="logo-img" />
-            <span class="logo-text">Afrootic <span>Nutrition</span></span>
-        </a>
-        <nav class="nav-links" id="navLinks">
-            <a href="#collection">Products</a>
-            <a href="#why">Why Afrootic</a>
-            <a href="#blog">Blog</a>
-            <a href="#pickup">Pickup</a>
-            <a href="#faq">FAQ</a>
-            <a href="opportunities.html">Partners</a>
-            <a href="cart.html" class="cart-icon">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-count" id="cart-count">0</span>
-            </a>
-            <a href="https://wa.me/254745479845?text=Hi!%20I%27d%20like%20to%20order%20from%20Afrootic%20Nutrition" target="_blank" class="nav-cta">Order on WhatsApp</a>
+    <header>
+        <nav>
+            <!-- Existing Navigation -->
         </nav>
-        <button class="hamburger" id="hamburger" aria-label="Open menu">
-            <span></span><span></span><span></span>
-        </button>
-    </div>
-</header>
-<div class="mobile-overlay" id="mobileOverlay"></div>
+    </header>
 
-<section class="hero" id="home">
-    <div class="hero-content">
-        <h1>Daily wellness<br /><em>made simple</em></h1>
-        <p>Feel good, look good, and stay consistent with wellness essentials made for real life.</p>
-        <div class="hero-cta-group">
-            <a href="#collection" class="btn btn-primary">Shop Now</a>
-            <a href="https://wa.me/254745479845" target="_blank" class="btn btn-whatsapp">Order on WhatsApp</a>
+    <main>
+        <div class="hero">
+            <!-- Complete Hero Section -->
+            <h1>Welcome to Incomparable Chanja</h1>
+            <p>Your one-stop solution for all things Afrootic.</p>
         </div>
-    </div>
-</section>
 
-<section class="products" id="products">
-    <div class="container">
-        <h2>OUR COLLECTION</h2>
-        <div class="category-pills">
-            <button class="pill active" data-filter="all">All Products</button>
-            <button class="pill" data-filter="powder">Powders</button>
-            <button class="pill" data-filter="gummies">Gummies</button>
-            <button class="pill" data-filter="capsules">Capsules</button>
+        <div class="products">
+            <!-- Existing Product Cards -->
         </div>
-        <div class="products-grid">
-            
-            <!-- 1. Marine Collagen 100g -->
-            <div class="product-card" data-category="powder">
-                <div class="product-badge bestseller">Best Seller</div>
-                <div class="product-image-wrap">
-                    <img src="images/marine-collagen-250g.jpg" alt="Afrootic Marine Collagen 250g" class="product-photo" loading="lazy" />
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">Marine Collagen</h3>
-                    <p class="product-benefit">Supports glowing skin, stronger nails, healthy hair</p>
-                    <ul class="product-features">
-                        <li>✓ Supports skin elasticity and reduces fine lines</li>
-                        <li>✓ Strengthens nails and promotes hair growth</li>
-                        <li>✓ Supports joint health and bone density</li>
-                        <li>✓ Improves skin hydration and firmness</li>
-                    </ul>
-                    <p class="product-description">Marine collagen is easily absorbed by the body and provides the building blocks for healthy skin, hair, nails, and joints. Consistent use promotes a youthful glow from within.</p>
-                    <div class="product-variants">
-                        <div class="variant">
-                            <span class="variant-size">100g</span>
-                            <span class="variant-price">KSH 1,300</span>
-                            <button class="add-to-cart-btn" data-id="1" data-name="Marine Collagen 100g" data-price="1300" data-image="images/marine-collagen-250g.jpg">Add to Cart</button>
-                        </div>
-                        <div class="variant">
-                            <span class="variant-size">250g</span>
-                            <span class="variant-price">KSH 2,500</span>
-                            <button class="add-to-cart-btn" data-id="2" data-name="Marine Collagen 250g" data-price="2500" data-image="images/marine-collagen-250g.jpg">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- 2. Afrootic Greens 150g -->
-            <div class="product-card" data-category="powder">
-                <div class="product-image-wrap">
-                    <img src="images/greens-pineapple-mango.jpg" alt="Afrootic Greens Pineapple Mango" class="product-photo" loading="lazy" />
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">Afrootic Greens</h3>
-                    <p class="product-benefit">Supports gut health, digestion, skin wellness</p>
-                    <ul class="product-features">
-                        <li>✓ Packed with nutrient-dense superfoods</li>
-                        <li>✓ Supports digestive health and detoxification</li>
-                        <li>✓ Boosts energy and immune function</li>
-                        <li>✓ Alkalizes the body and reduces inflammation</li>
-                    </ul>
-                    <p class="product-description">A powerful blend of organic greens, fruits, and vegetables that delivers essential vitamins, minerals, and antioxidants in one convenient daily serving.</p>
-                    <div class="product-variants">
-                        <div class="variant">
-                            <span class="variant-size">150g</span>
-                            <span class="variant-price">KSH 2,000</span>
-                            <button class="add-to-cart-btn" data-id="3" data-name="Afrootic Greens 150g" data-price="2000" data-image="images/greens-pineapple-mango.jpg">Add to Cart</button>
-                        </div>
-                        <div class="variant">
-                            <span class="variant-size">300g</span>
-                            <span class="variant-price">KSH 3,600</span>
-                            <button class="add-to-cart-btn" data-id="4" data-name="Afrootic Greens 300g" data-price="3600" data-image="images/greens-pineapple-mango.jpg">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section class="why-afrootic">
+            <h2>Why Afrootic</h2>
+            <p>Here you can explain why your brand is unique and why customers should choose you.</p>
+        </section>
 
-            <!-- 3. Women's Probiotic Gummies Cranberry 30ct -->
-            <div class="product-card" data-category="gummies">
-                <div class="product-image-wrap">
-                    <img src="images/probiotic-cranberry.jpg" alt="Women's Probiotic Gummies Cranberry" class="product-photo" loading="lazy" />
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">Women's Probiotic Gummies <span class="flavor-tag">Cranberry</span></h3>
-                    <p class="product-benefit">Supports digestion, bloating, daily balance</p>
-                    <ul class="product-features">
-                        <li>✓ Supports vaginal and urinary tract health</li>
-                        <li>✓ Promotes balanced gut flora and digestion</li>
-                        <li>✓ Strengthens immune system function</li>
-                        <li>✓ Reduces bloating and digestive discomfort</li>
-                    </ul>
-                    <p class="product-description">Specially formulated with cranberry and beneficial probiotics to support women's intimate health, digestive balance, and overall wellness in a delicious gummy form.</p>
-                    <div class="product-variants">
-                        <div class="variant">
-                            <span class="variant-size">30 Gummies</span>
-                            <span class="variant-price">KSH 1,750</span>
-                            <button class="add-to-cart-btn" data-id="5" data-name="Probiotic Gummies Cranberry 30ct" data-price="1750" data-image="images/probiotic-cranberry.jpg">Add to Cart</button>
-                        </div>
-                        <div class="variant">
-                            <span class="variant-size">60 Gummies</span>
-                            <span class="variant-price">KSH 3,500</span>
-                            <button class="add-to-cart-btn" data-id="6" data-name="Probiotic Gummies Cranberry 60ct" data-price="3500" data-image="images/probiotic-cranberry.jpg">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section class="blog">
+            <h2>Blog</h2>
+            <p>Latest news and updates from our team!</p>
+        </section>
 
-            <!-- 4. Women's Probiotics Slippery Elm 30ct -->
-            <div class="product-card" data-category="gummies">
-                <div class="product-image-wrap">
-                    <img src="images/probiotic-slippery-elm.jpg" alt="Women's Probiotics Slippery Elm Tropical Pineapple" class="product-photo" loading="lazy" />
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">Women's Probiotics with Slippery Elm <span class="flavor-tag">Tropical Pineapple</span></h3>
-                    <p class="product-benefit">Supports digestion and gut comfort</p>
-                    <ul class="product-features">
-                        <li>✓ Soothes digestive tract inflammation</li>
-                        <li>✓ Supports regular bowel movements</li>
-                        <li>✓ Promotes healthy gut bacteria balance</li>
-                        <li>✓ Relieves occasional digestive discomfort</li>
-                    </ul>
-                    <p class="product-description">Combines powerful probiotics with slippery elm bark, a traditional herbal remedy known for its soothing properties. Perfect for sensitive digestive systems and daily gut comfort.</p>
-                    <div class="product-variants">
-                        <div class="variant">
-                            <span class="variant-size">30 Gummies</span>
-                            <span class="variant-price">KSH 1,750</span>
-                            <button class="add-to-cart-btn" data-id="7" data-name="Probiotic Slippery Elm 30ct" data-price="1750" data-image="images/probiotic-slippery-elm.jpg">Add to Cart</button>
-                        </div>
-                        <div class="variant">
-                            <span class="variant-size">60 Gummies</span>
-                            <span class="variant-price">KSH 3,500</span>
-                            <button class="add-to-cart-btn" data-id="8" data-name="Probiotic Slippery Elm 60ct" data-price="3500" data-image="images/probiotic-slippery-elm.jpg">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section class="testimonials">
+            <h2>Testimonials</h2>
+            <p>What our customers say about us.</p>
+        </section>
 
-            <!-- 5. Revive+ 15 Sachets -->
-            <div class="product-card" data-category="powder">
-                <div class="product-badge new">Energy</div>
-                <div class="product-image-wrap">
-                    <img src="images/revive-plus-2.jpg" alt="Afrootic Revive+ Energy Sachets" class="product-photo" loading="lazy" />
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">Revive+</h3>
-                    <p class="product-benefit">Energy support without crash</p>
-                    <ul class="product-features">
-                        <li>✓ Provides natural, sustained energy without crash</li>
-                        <li>✓ Supports mental clarity and focus</li>
-                        <li>✓ Enhances physical performance and endurance</li>
-                        <li>✓ Reduces fatigue and brain fog</li>
-                    </ul>
-                    <p class="product-description">A clean energy formula designed to fuel your day naturally. Unlike caffeine-heavy alternatives, Revive+ provides balanced, jitter-free energy that lasts.</p>
-                    <div class="product-variants">
-                        <div class="variant">
-                            <span class="variant-size">15 Sachets</span>
-                            <span class="variant-price">KSH 1,500</span>
-                            <button class="add-to-cart-btn" data-id="9" data-name="Revive+ 15 Sachets" data-price="1500" data-image="images/revive-plus-2.jpg">Add to Cart</button>
-                        </div>
-                        <div class="variant">
-                            <span class="variant-size">30 Sachets</span>
-                            <span class="variant-price">KSH 3,000</span>
-                            <button class="add-to-cart-btn" data-id="10" data-name="Revive+ 30 Sachets" data-price="3000" data-image="images/revive-plus-2.jpg">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section class="pickup-locations">
+            <h2>Pickup Locations</h2>
+            <p>Find your nearest pickup location.</p>
+        </section>
 
-            <!-- 6. Creatine Gummies -->
-            <div class="product-card" data-category="gummies">
-                <div class="product-image-wrap">
-                    <img src="images/creatine-gummies.jpg" alt="Afrootic Creatine Monohydrate Gummies" class="product-photo" loading="lazy" />
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">Creatine Gummies</h3>
-                    <p class="product-benefit">Strength and recovery support</p>
-                    <ul class="product-features">
-                        <li>✓ Increases muscle strength and power output</li>
-                        <li>✓ Supports muscle recovery and growth</li>
-                        <li>✓ Enhances athletic performance and endurance</li>
-                        <li>✓ Supports cognitive function and brain health</li>
-                    </ul>
-                    <p class="product-description">One of the most researched sports supplements, creatine monohydrate helps you train harder, recover faster, and build lean muscle mass. Now in a convenient, great-tasting gummy.</p>
-                    <div class="product-variants single">
-                        <div class="variant">
-                            <span class="variant-size">Per Bottle</span>
-                            <span class="variant-price">KSH 2,700</span>
-                            <button class="add-to-cart-btn" data-id="11" data-name="Creatine Gummies" data-price="2700" data-image="images/creatine-gummies.jpg">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section class="faq">
+            <h2>FAQ</h2>
+            <p>Frequently Asked Questions.</p>
+        </section>
 
-            <!-- 7. Magnesium Bisglycinate -->
-            <div class="product-card" data-category="capsules">
-                <div class="product-image-wrap">
-                    <img src="images/magnesium-bisglycinate.jpg" alt="Afrootic Magnesium Bisglycinate Capsules" class="product-photo" loading="lazy" />
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">Magnesium Bisglycinate</h3>
-                    <p class="product-benefit">Relaxation and recovery</p>
-                    <ul class="product-features">
-                        <li>✓ Promotes deep, restful sleep</li>
-                        <li>✓ Relieves muscle tension and cramps</li>
-                        <li>✓ Supports stress reduction and relaxation</li>
-                        <li>✓ Enhances bone health and heart function</li>
-                    </ul>
-                    <p class="product-description">Magnesium bisglycinate is a highly bioavailable form of magnesium that's gentle on the stomach. Essential for over 300 bodily functions, it's the ultimate relaxation mineral.</p>
-                    <div class="product-variants single">
-                        <div class="variant">
-                            <span class="variant-size">Per Bottle</span>
-                            <span class="variant-price">KSH 2,200</span>
-                            <button class="add-to-cart-btn" data-id="12" data-name="Magnesium Bisglycinate" data-price="2200" data-image="images/magnesium-bisglycinate.jpg">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section class="cta-banner">
+            <h2>Call to Action</h2>
+            <p>Join us today and experience the difference!</p>
+            <button>Get Started</button>
+        </section>
 
-            <!-- 8. Berberine 1000mg -->
-            <div class="product-card" data-category="capsules">
-                <div class="product-badge science">Science-Backed</div>
-                <div class="product-image-wrap">
-                    <img src="images/berberine-1000mg.jpg" alt="Berberine 1000mg" class="product-photo" loading="lazy" />
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">Berberine 1000mg</h3>
-                    <p class="product-benefit">Plant-Based Blood Sugar & Metabolic Support</p>
-                    <ul class="product-features">
-                        <li>✓ Supports healthy blood sugar</li>
-                        <li>✓ Helps reduce cravings</li>
-                        <li>✓ Supports metabolism & balance</li>
-                    </ul>
-                    <p class="product-description">One of the most studied natural compounds for <strong>metabolic health</strong>.</p>
-                    <div class="product-variants single">
-                        <div class="variant">
-                            <span class="variant-size">60 Capsules | 30 Day Supply</span>
-                            <span class="variant-price">KSH 2,400</span>
-                            <button class="add-to-cart-btn" data-id="13" data-name="Berberine 1000mg" data-price="2400" data-image="images/berberine-1000mg.jpg">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <footer class="footer">
+            <h2>Contact Us</h2>
+            <p>We would love to hear from you!</p>
+        </footer>
+    </main>
 
-            <!-- 9. Myo and Inositol -->
-            <div class="product-card" data-category="capsules">
-                <div class="product-image-wrap">
-                    <img src="images/probiotic-slippery-elm.jpg" alt="Myo and Inositol" class="product-photo" loading="lazy" />
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">Myo and Inositol</h3>
-                    <p class="product-benefit">Women's wellness support</p>
-                    <ul class="product-features">
-                        <li>✓ Supports hormonal balance and menstrual regularity</li>
-                        <li>✓ Promotes ovarian health and fertility</li>
-                        <li>✓ Helps manage cravings and metabolic health</li>
-                        <li>✓ Supports mood and emotional well-being</li>
-                    </ul>
-                    <p class="product-description">Myo-inositol is a powerful compound that supports women's hormonal health, particularly for PCOS management. It helps regulate cycles, support metabolism, and promote overall reproductive wellness.</p>
-                    <div class="product-variants single">
-                        <div class="variant">
-                            <span class="variant-size">Per Bottle</span>
-                            <span class="variant-price">KSH 2,500</span>
-                            <button class="add-to-cart-btn" data-id="14" data-name="Myo and Inositol" data-price="2500" data-image="images/probiotic-slippery-elm.jpg">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 10. Sea Moss Advanced -->
-            <div class="product-card" data-category="capsules">
-                <div class="product-badge popular">Popular</div>
-                <div class="product-image-wrap">
-                    <img src="images/sea-moss-advanced.jpg" alt="Sea Moss Advanced" class="product-photo" loading="lazy" />
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">Sea Moss Advanced</h3>
-                    <p class="product-benefit">Sea Moss • Bladderwrack • Burdock Root</p>
-                    <ul class="product-features">
-                        <li>✓ Contains 92 of 102 essential minerals</li>
-                        <li>✓ Nature's most powerful plant-based wellness ally</li>
-                        <li>✓ Supports energy, immunity & glow</li>
-                    </ul>
-                    <p class="product-description">It's no wonder it's a <strong>powerhouse</strong> for daily wellness.</p>
-                    <div class="product-variants single">
-                        <div class="variant">
-                            <span class="variant-size">60 Vegetable Capsules</span>
-                            <span class="variant-price">KSH 1,999</span>
-                            <button class="add-to-cart-btn" data-id="15" data-name="Sea Moss Advanced" data-price="1999" data-image="images/sea-moss-advanced.jpg">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 11. ACV Gummies 45ct -->
-            <div class="product-card" data-category="gummies">
-                <div class="product-image-wrap">
-                    <img src="images/acv-gummies-90.jpg" alt="Afrootic Apple Cider Vinegar Gummies" class="product-photo" loading="lazy" />
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">Apple Cider Vinegar Gummies</h3>
-                    <p class="product-benefit">Digestive support</p>
-                    <ul class="product-features">
-                        <li>✓ Supports healthy digestion and metabolism</li>
-                        <li>✓ Helps maintain balanced blood sugar levels</li>
-                        <li>✓ Promotes weight management and satiety</li>
-                        <li>✓ Supports detoxification and immune function</li>
-                    </ul>
-                    <p class="product-description">All the benefits of raw apple cider vinegar in a delicious, easy-to-take gummy. ACV has been used for centuries to support digestion, metabolism, and overall wellness.</p>
-                    <div class="product-variants">
-                        <div class="variant">
-                            <span class="variant-size">45 Gummies</span>
-                            <span class="variant-price">KSH 1,000</span>
-                            <button class="add-to-cart-btn" data-id="16" data-name="ACV Gummies 45ct" data-price="1000" data-image="images/acv-gummies-90.jpg">Add to Cart</button>
-                        </div>
-                        <div class="variant">
-                            <span class="variant-size">90 Gummies</span>
-                            <span class="variant-price">KSH 2,000</span>
-                            <button class="add-to-cart-btn" data-id="17" data-name="ACV Gummies 90ct" data-price="2000" data-image="images/acv-gummies-90.jpg">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div><!-- /.products-grid -->
-    </div>
-</section>
-
-<footer class="footer">
-    <div class="container">
-        <p>© 2025 Afrootic Nutrition. All rights reserved.</p>
-    </div>
-</footer>
-
-<a href="https://wa.me/254745479845" target="_blank" class="whatsapp-float">
-    <i class="fab fa-whatsapp"></i>
-</a>
-
-<script src="js/main.js"></script>
-<script src="js/animations.js"></script>
-<script src="js/cart.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

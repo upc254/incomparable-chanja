@@ -1,6 +1,7 @@
 /* ============================================================
-   AFROOTIC NUTRITION — PREMIUM WELLNESS BRAND STYLESHEET
-   ============================================================ */
+AFROOTIC NUTRITION — PREMIUM WELLNESS BRAND STYLESHEET
+Color Palette: Forest Green, Warm White, Natural Earth
+============================================================ */
 
 /* ---- CSS CUSTOM PROPERTIES ---- */
 :root {
@@ -11,154 +12,143 @@
   --green-pale:   #b7e4c7;
   --green-mist:   #d8f3dc;
   --green-bg:     #f0faf3;
-
   --white:        #ffffff;
   --off-white:    #fafdf8;
   --cream:        #f5f0e8;
-
+  --warm-beige:   #e8dcc8;
+  --tan:          #c8a882;
   --text-dark:    #1a2e22;
   --text-mid:     #374a3d;
   --text-light:   #6b8070;
-
+  --text-muted:   #9aaa9f;
   --wa-green:     #25d366;
   --wa-dark:      #128c7e;
-
   --shadow-sm:    0 2px 12px rgba(42, 90, 60, 0.08);
   --shadow-md:    0 8px 32px rgba(42, 90, 60, 0.12);
   --shadow-lg:    0 20px 60px rgba(42, 90, 60, 0.16);
-
   --radius-sm:    8px;
   --radius-md:    16px;
   --radius-lg:    24px;
-
   --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body:    'Jost', 'Inter', system-ui, sans-serif;
-
+  --font-body:    'Jost', system-ui, sans-serif;
   --nav-height:   72px;
-  --transition:   0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ---- RESET ---- */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
+/* ---- RESET & BASE ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
 body {
   font-family: var(--font-body);
   background: var(--off-white);
   color: var(--text-dark);
   line-height: 1.7;
-  overflow-x: hidden;
 }
-
+a { text-decoration: none; color: inherit; transition: 0.3s ease; }
 img { max-width: 100%; display: block; }
-a { text-decoration: none; color: inherit; }
-button { cursor: pointer; border: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-/* ---- PRODUCT CARDS FIX ---- */
-.product-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  background: var(--off-white);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-}
-
-/* IMPORTANT FIX: click issue */
-.product-card button,
-.add-to-cart-btn {
-  position: relative;
-  z-index: 10;
-}
-
-/* ---- ADD TO CART BUTTON (FINAL FIXED ONE ONLY) ---- */
-.add-to-cart-btn {
-  width: 100%;
-  padding: 12px 18px;
-  background: var(--green-main);
-  color: white;
-  border-radius: 6px;
-  font-size: 15px;
+/* ---- BUTTONS ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 100px;
   font-weight: 600;
+  transition: all 0.3s;
   cursor: pointer;
-  margin-top: 10px;
-  transition: var(--transition);
 }
+.btn-primary { background: var(--green-main); color: white; box-shadow: 0 4px 20px rgba(58, 125, 90, 0.3); }
+.btn-primary:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 6px 28px rgba(58, 125, 90, 0.4); }
+.btn-whatsapp { background: var(--wa-green); color: white; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); }
+.btn-whatsapp:hover { background: var(--wa-dark); transform: translateY(-2px); }
 
-.add-to-cart-btn:hover {
-  background: var(--green-dark);
-  transform: translateY(-2px);
+/* ---- NAVIGATION ---- */
+#navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  height: var(--nav-height);
+  background: rgba(250, 253, 248, 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(82, 183, 136, 0.15);
+  transition: all 0.3s;
 }
+.nav-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+.logo { display: flex; align-items: center; gap: 8px; }
+.logo-text { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--text-dark); letter-spacing: 0.3px; }
+.logo-text span { color: var(--green-main); }
+.nav-links { display: flex; align-items: center; gap: 8px; }
+.nav-links a { font-size: 0.88rem; font-weight: 500; color: var(--text-mid); padding: 8px 14px; border-radius: 8px; transition: all 0.3s; }
+.nav-links a:hover { color: var(--green-main); background: var(--green-mist); }
+.nav-cta { background: var(--wa-green) !important; color: white !important; border-radius: 100px !important; padding: 9px 20px !important; font-weight: 600 !important; }
+.hamburger { display: none; flex-direction: column; gap: 5px; width: 32px; }
+.hamburger span { display: block; height: 2px; background: var(--text-dark); border-radius: 2px; transition: all 0.3s; }
 
-/* ---- CART ICON ---- */
-.cart-icon {
-  position: relative;
-  font-size: 20px;
-  color: var(--green-dark);
-}
+/* ---- HERO SECTION ---- */
+.hero { min-height: 100vh; padding: calc(var(--nav-height) + 60px) 24px 80px; display: flex; align-items: center; gap: 60px; max-width: 1200px; margin: 0 auto; }
+.hero-content { flex: 1; max-width: 560px; }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--green-mist); border: 1px solid var(--green-pale); color: var(--green-mid); font-size: 0.82rem; font-weight: 600; padding: 6px 16px; border-radius: 100px; margin-bottom: 24px; }
+.badge-dot { width: 6px; height: 6px; background: var(--green-light); border-radius: 50%; animation: pulse-dot 2s infinite; }
+@keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.5); } }
+.hero-headline { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5rem); font-weight: 400; line-height: 1.05; color: var(--text-dark); margin-bottom: 24px; }
+.hero-headline em { font-style: italic; color: var(--green-main); }
+.hero-sub { font-size: 1.1rem; color: var(--text-light); line-height: 1.8; margin-bottom: 40px; max-width: 480px; }
+.hero-cta-group { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 48px; }
+.hero-trust { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 0.82rem; color: var(--text-light); font-weight: 500; }
+.trust-item { display: flex; align-items: center; gap: 6px; }
+.trust-item i { color: var(--green-light); }
+.trust-divider { color: var(--green-pale); font-size: 1.2rem; }
 
-.cart-count {
-  position: absolute;
-  top: -8px;
-  right: -10px;
-  background: var(--green-main);
-  color: white;
-  border-radius: 50%;
-  width: 18px;
-  height: 18px;
-  font-size: 11px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* ---- COLLECTION INTRO ---- */
+.collection-intro { padding: 100px 0 40px; text-align: center; background: var(--white); }
+.section-tag { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--green-light); margin-bottom: 16px; display: block; }
+.section-title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 500; line-height: 1.2; color: var(--text-dark); margin-bottom: 20px; }
+.category-pills { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 32px; }
+.pill { padding: 10px 24px; border-radius: 100px; font-size: 0.88rem; font-weight: 500; border: 1.5px solid var(--green-pale); color: var(--text-light); background: transparent; transition: 0.3s; cursor: pointer; }
+.pill:hover, .pill.active { background: var(--green-main); color: white; border-color: var(--green-main); }
 
-/* ---- CART NOTIFICATION FIX ---- */
-.cart-notification {
-  position: fixed;
-  bottom: 100px;
-  right: 20px;
-  background: var(--green-main);
-  color: white;
-  padding: 14px 20px;
-  border-radius: 8px;
-  z-index: 9999;
-  transform: translateX(120%);
-  transition: 0.3s ease;
-  font-weight: 500;
-}
+/* ---- PRODUCTS SECTION ---- */
+.products { padding: 40px 0 100px; background: var(--white); }
+.products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+.product-card { background: var(--off-white); border-radius: 24px; overflow: hidden; border: 1px solid rgba(82, 183, 136, 0.1); transition: 0.3s; display: flex; flex-direction: column; position: relative; }
+.product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: rgba(82, 183, 136, 0.3); }
+.product-badge { position: absolute; top: 16px; left: 16px; z-index: 2; font-size: 0.72rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; }
+.product-badge.bestseller { background: var(--green-main); color: white; }
+.product-image-wrap { position: relative; height: 180px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--green-bg), var(--cream)); overflow: hidden; }
+.product-info { padding: 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.product-name { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--text-dark); }
+.flavor-tag { display: inline-block; font-size: 0.72rem; font-weight: 600; background: var(--green-mist); color: var(--green-mid); padding: 2px 10px; border-radius: 100px; margin-left: 6px; }
+.product-benefit { font-size: 0.85rem; color: var(--text-light); line-height: 1.5; }
+.product-features { list-style: none; padding: 0; margin: 15px 0; }
+.product-features li { padding: 8px 0; color: #555; font-size: 14px; border-bottom: 1px solid #f0f0f0; }
+.product-description { color: #666; font-size: 14px; margin: 15px 0; line-height: 1.6; }
+.product-variants { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+.variant { display: flex; align-items: center; gap: 8px; padding: 10px 12px; background: white; border-radius: 8px; border: 1px solid rgba(82, 183, 136, 0.15); }
+.variant-size { font-size: 0.82rem; font-weight: 500; color: var(--text-mid); flex: 1; }
+.variant-price { font-size: 0.9rem; font-weight: 700; color: var(--green-main); flex-shrink: 0; }
 
-.cart-notification.show {
-  transform: translateX(0);
-}
+/* ---- CART SYSTEM FIXES ---- */
+.add-to-cart-btn { width: 100%; padding: 12px 20px; background: var(--green-main); color: white; border: none; border-radius: 6px; font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.3s; margin-top: 10px; }
+.add-to-cart-btn:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3); }
+.cart-icon { position: relative; color: var(--green-dark); font-size: 20px; margin-right: 15px; text-decoration: none; }
+.cart-count { position: absolute; top: -8px; right: -10px; background: var(--green-main); color: white; border-radius: 50%; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; }
+.cart-notification { position: fixed; bottom: 100px; right: 20px; background: var(--green-main); color: white; padding: 15px 25px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 10000; transform: translateX(400px); transition: transform 0.3s ease; font-weight: 500; }
+.cart-notification.show { transform: translateX(0); }
+.whatsapp-float { position: fixed; bottom: 28px; right: 28px; z-index: 999; width: 60px; height: 60px; border-radius: 50%; background: var(--wa-green); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; box-shadow: 0 4px 24px rgba(37, 211, 102, 0.5); transition: 0.3s; }
+.whatsapp-float:hover { transform: scale(1.1); }
 
-/* ---- PRODUCT IMAGE FIX ---- */
-.product-image-wrap {
-  position: relative;
-  z-index: 1;
-  pointer-events: auto;
-}
+/* ==== FINAL CLICK FIXES ==== */
+.add-to-cart-btn { position: relative !important; z-index: 10 !important; pointer-events: auto !important; }
+.product-card * { pointer-events: auto !important; }
+.product-card { position: relative !important; z-index: 2 !important; }
+.product-image-wrap { pointer-events: none !important; }
 
-/* ---- BUTTON BASE SAFETY ---- */
-button {
-  font-family: inherit;
-}
-
-/* ---- FLOATING WHATSAPP ---- */
-.whatsapp-float {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: var(--wa-green);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.7rem;
-  z-index: 999;
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero { flex-direction: column; padding: calc(var(--nav-height) + 40px) 24px; text-align: center; }
+  .hero-content { max-width: 100%; }
+  .hero-cta-group { justify-content: center; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .products-grid { grid-template-columns: 1fr; }
 }
